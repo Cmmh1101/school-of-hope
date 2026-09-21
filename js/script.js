@@ -72,4 +72,25 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // Hero background video (YouTube): starts muted for autoplay, this button lets
+  // visitors turn sound on/off via postMessage to the embed (needs enablejsapi=1 on the iframe src).
+  var ytMuteBtn = document.querySelector(".yt-mute-toggle");
+  var ytFrame = document.querySelector(".yt-bg-wrap iframe");
+  if (ytMuteBtn && ytFrame) {
+    var ytMuteLabels = {
+      es: { muted: "Activar sonido", unmuted: "Silenciar" },
+      en: { muted: "Turn on sound", unmuted: "Mute" },
+    };
+    ytMuteBtn.addEventListener("click", function () {
+      var willMute = !ytMuteBtn.classList.contains("is-muted");
+      ytFrame.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: willMute ? "mute" : "unMute", args: [] }),
+        "*"
+      );
+      ytMuteBtn.classList.toggle("is-muted", willMute);
+      var lang = document.documentElement.getAttribute("lang") === "en" ? "en" : "es";
+      ytMuteBtn.setAttribute("aria-label", willMute ? ytMuteLabels[lang].muted : ytMuteLabels[lang].unmuted);
+    });
+  }
 });
