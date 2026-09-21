@@ -391,6 +391,14 @@ section { padding: 88px 0; }
   background: var(--gold-soft);
 }
 
+.team-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--sky-soft);
+}
+
 .cta-banner {
   background: var(--gold);
   border-radius: 16px;
