@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables — this static site has no build step so none of these are
+# actually read today (see js/supabase-config.js for the real, intentionally public
+# config). Ignored here so a real .env never gets committed once the Next.js version
+# of this project exists. See .env.example for what that version will need.
+.env
+.env.local
+.env.*.local
+
+# Dependencies / build output, in case this project grows a bundler later
+node_modules/
+dist/
+build/

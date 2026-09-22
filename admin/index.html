@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>School of Hope International — Panel de administración</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="../index.html" class="brand">
+      <img src="../assets/logo.png" alt="School of Hope International" class="brand-logo">
+    </a>
+    <div class="nav-cta" style="margin-left:auto;">
+      <button type="button" id="logout-btn" class="btn btn-outline-navy" hidden>Cerrar sesión</button>
+    </div>
+  </nav>
+</header>
+
+<section>
+  <div class="container" style="max-width:720px;">
+
+    <div id="admin-login" class="form-card" style="max-width:420px; margin:0 auto;">
+      <h1 style="font-size:22px; margin-bottom:6px;">Panel de administración</h1>
+      <p style="color:var(--ink-muted); font-size:14px; margin-bottom:24px;">Inicia sesión para escribir y editar publicaciones del blog.</p>
+      <div id="login-error" class="form-card" style="border-color:#be5a34; padding:14px 16px; margin-bottom:16px;" hidden>
+        <p style="color:#be5a34; margin:0; font-size:13.5px;">Correo o contraseña incorrectos.</p>
+      </div>
+      <form id="login-form">
+        <div class="form-row"><label for="login-email">Correo</label><input type="email" id="login-email" name="email" required></div>
+        <div class="form-row"><label for="login-password">Contraseña</label><input type="password" id="login-password" name="password" required></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Iniciar sesión</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<section id="admin-dashboard" hidden>
+  <div class="container" style="max-width:880px;">
+    <div class="section-head" style="margin-bottom:24px;">
+      <h2 style="font-size:24px;">Publicaciones del blog</h2>
+      <button type="button" id="new-post-btn" class="btn btn-primary" style="margin-top:14px;">+ Nueva publicación</button>
+    </div>
+
+    <div class="form-card" style="margin-bottom:40px;">
+      <div id="posts-list"><p style="color:var(--ink-muted);">Cargando...</p></div>
+    </div>
+
+    <form id="post-form" class="form-card" hidden>
+      <h3 id="post-form-title" style="font-size:19px; margin-bottom:6px;">Nueva publicación</h3>
+      <p style="color:var(--ink-muted); font-size:13.5px; margin-bottom:20px;">Escribe en un idioma, en ambos, o solo en uno — el sitio público muestra el que corresponda. Si solo escribes un idioma, ese es el que se muestra siempre.</p>
+
+      <div id="save-status" class="form-card" style="padding:12px 16px; margin-bottom:16px;" hidden></div>
+
+      <div class="admin-lang-tabs">
+        <button type="button" class="active" data-post-lang="es">Español</button>
+        <button type="button" data-post-lang="en">English</button>
+      </div>
+
+      <div class="admin-lang-panel" data-lang-panel="es">
+        <div class="form-row"><label for="post-title-es">Título (Español)</label><input type="text" id="post-title-es" name="title_es"></div>
+        <div class="form-row"><label for="post-excerpt-es">Resumen corto (Español)</label><input type="text" id="post-excerpt-es" name="excerpt_es"></div>
+        <div class="form-row">
+          <label>Contenido (Español)</label>
+          <div id="editor-es" style="background:#fff;"></div>
+        </div>
+      </div>
+
+      <div class="admin-lang-panel" data-lang-panel="en" hidden>
+        <div class="form-row"><label for="post-title-en">Título (English)</label><input type="text" id="post-title-en" name="title_en"></div>
+        <div class="form-row"><label for="post-excerpt-en">Resumen corto (English)</label><input type="text" id="post-excerpt-en" name="excerpt_en"></div>
+        <div class="form-row">
+          <label>Contenido (English)</label>
+          <div id="editor-en" style="background:#fff;"></div>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top:20px;"><label for="post-slug">Slug (URL, compartido entre idiomas)</label><input type="text" id="post-slug" name="slug" pattern="[a-z0-9\-]+" required></div>
+
+      <div class="form-row">
+        <label>Portada (imagen, compartida entre idiomas)</label>
+        <input type="file" id="post-cover" name="cover" accept="image/*">
+        <img id="cover-preview" src="" alt="" style="max-width:220px; border-radius:8px; margin-top:10px;" hidden>
+      </div>
+
+      <div class="form-row">
+        <label>Estado</label>
+        <div class="choice-group">
+          <label><input type="radio" name="status" value="draft" checked> Borrador</label>
+          <label><input type="radio" name="status" value="published"> Publicado</label>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px; margin-top:10px;">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" id="cancel-edit-btn" class="btn btn-outline-navy">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script src="../js/supabase-config.js"></script>
+<script src="admin.js?v=2"></script>
+</body>
+</html>
