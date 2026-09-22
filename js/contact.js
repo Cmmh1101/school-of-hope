@@ -1,12 +1,13 @@
-// Contact form: saves each submission as a lead in Supabase (see supabase/leads-schema.sql).
-// Public visitors can only INSERT — RLS blocks reading other people's leads — so it's safe
-// to run this without any login.
+// Contact form: saves each submission as a lead in Supabase (see supabase/leads-schema.sql)
+// — that's the permanent record. Public visitors can only INSERT — RLS blocks reading
+// other people's leads — so it's safe to run this without any login.
 //
-// After a successful save, this also pings a Google Apps Script that emails the team —
-// see google-apps-script/NotifyContactLead.gs. That step is best-effort: if it fails, the
-// lead is already safely in Supabase, so the visitor still sees a normal success message.
-var CONTACT_NOTIFY_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-
+// It also submits to Netlify Forms (the <form data-netlify="true"> in contacto.html),
+// purely so Netlify can send an email notification — configure that under the site's
+// Netlify dashboard: Forms -> (the "contact" form) -> Settings & usage -> Form
+// notifications -> Add notification -> Email notification. That step only works once
+// this site is actually deployed on Netlify; it fails silently (and harmlessly) anywhere
+// else, since Supabase already has the lead saved regardless.
 document.addEventListener("DOMContentLoaded", function () {
   var form = document.querySelector("#contact-form");
   if (!form) return;
@@ -15,6 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
   var errorBox = document.querySelector("#contact-error");
   var formCard = document.querySelector("#contact-form-card");
   var submitBtn = document.querySelector("#contact-submit");
+
+  function encodeFormData(data) {
+    return Object.keys(data)
+      .map(function (key) {
+        return encodeURIComponent(key) + "=" + encodeURIComponent(data[key] == null ? "" : data[key]);
+      })
+      .join("&");
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -42,9 +51,19 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
         }
 
-        if (CONTACT_NOTIFY_URL && CONTACT_NOTIFY_URL.indexOf("PASTE_YOUR") !== 0) {
-          fetch(CONTACT_NOTIFY_URL, { method: "POST", mode: "no-cors", body: formData }).catch(function () {});
-        }
+        // Best-effort — only succeeds once this site is live on Netlify.
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encodeFormData({
+            "form-name": "contact",
+            name: payload.name,
+            email: payload.email,
+            phone: payload.phone || "",
+            subject: payload.subject || "",
+            message: payload.message,
+          }),
+        }).catch(function () {});
 
         formCard.hidden = true;
         successBox.hidden = false;
