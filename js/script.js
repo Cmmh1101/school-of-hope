@@ -54,24 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Formulario de contacto: demo sin backend. Sustituye este bloque por tu
-  // proveedor de formularios (Formspree, Netlify Forms, etc.) o por tu propio backend.
-  var form = document.querySelector("#contact-form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var note = document.querySelector("#contact-form-note");
-      if (note) {
-        var lang = document.documentElement.getAttribute("lang") === "en" ? "en" : "es";
-        var messages = {
-          es: "Este formulario es una demostración. Conéctalo a tu servicio de formularios o backend antes de publicar tu sitio.",
-          en: "This form is a demo. Connect it to your form provider or your own backend before publishing your site.",
-        };
-        note.textContent = messages[lang];
-        note.style.color = "#be5a34";
-      }
-    });
-  }
+  // Contact form submission lives in js/contact.js (posts real leads to Supabase).
 
   // Hero background video (YouTube): starts muted for autoplay, this button lets
   // visitors turn sound on/off via postMessage to the embed (needs enablejsapi=1 on the iframe src).
