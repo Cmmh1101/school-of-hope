@@ -6,6 +6,8 @@
  *  2. Generates a one-page PDF summary of that submission and saves it into a Drive
  *     folder you choose — one PDF per submission, plus the sheet row as the searchable
  *     record. The sheet's "PDF" column links straight to each file.
+ *  3. Emails NOTIFY_EMAIL a heads-up with the key details, reply-to set to the
+ *     applicant's own email so you can just hit reply.
  *
  * Deploy:
  *  1. Create a new Google Sheet (this is where applications will land).
@@ -27,6 +29,7 @@
  */
 
 var FOLDER_ID = "PASTE_YOUR_DRIVE_FOLDER_ID_HERE";
+var NOTIFY_EMAIL = "academy@schoolofhopeinternational.org";
 
 var HEADERS = [
   "Fecha de envío", "Nombre", "Apellido", "Fecha de nacimiento", "Edad", "Ciudad", "País",
@@ -71,9 +74,40 @@ function doPost(e) {
     pdfLink
   ]);
 
+  try {
+    notifyTeam(params, pdfLink);
+  } catch (err) {
+    // The application is already safely saved above — a failed notification email
+    // should never make the applicant see an error.
+  }
+
   return ContentService
     .createTextOutput(JSON.stringify({ result: "success" }))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+/**
+ * Emails NOTIFY_EMAIL a short heads-up about a new scholarship application.
+ */
+function notifyTeam(p, pdfLink) {
+  var studentName = ((p.nombre || "") + " " + (p.apellido || "")).trim() || "Sin nombre";
+  var subjectLine = "Nueva solicitud de beca — " + studentName;
+  var body =
+    "Se recibió una nueva solicitud de beca:\n\n" +
+    "Nombre: " + (p.nombre || "—") + " " + (p.apellido || "—") + "\n" +
+    "Email: " + (p.email || "—") + "\n" +
+    "Teléfono: " + (p.telefono || "—") + "\n" +
+    "País: " + (p.pais || "—") + "\n" +
+    "Nivel educativo actual: " + (p.nivelEducativo || "—") + "\n\n" +
+    "PDF de la solicitud: " + (pdfLink || "—") + "\n\n" +
+    "Revisa la fila completa en la hoja de cálculo para el resto de los detalles.";
+
+  MailApp.sendEmail({
+    to: NOTIFY_EMAIL,
+    subject: subjectLine,
+    body: body,
+    replyTo: p.email || NOTIFY_EMAIL,
+  });
 }
 
 /**
