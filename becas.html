@@ -59,159 +59,171 @@
 <section>
   <div class="container" style="max-width:820px;">
     <div style="margin-bottom:28px;">
-      <span class="lang-tag">ES</span>
-      <p style="font-size:14px; color:var(--ink-muted);" data-lang="es">Este formulario de solicitud de beca está disponible solo en español, ya que así se procesan las solicitudes. Si necesitas ayuda para completarlo en inglés, escríbenos a <a href="mailto:academy@schoolofhopeinternational.org" style="color:var(--navy); font-weight:600;">academy@schoolofhopeinternational.org</a>.</p>
-      <p style="font-size:14px; color:var(--ink-muted);" data-lang="en" hidden>This scholarship application is only available in Spanish, since that's the language applications are processed in. If you need help completing it in English, reach out to <a href="mailto:academy@schoolofhopeinternational.org" style="color:var(--navy); font-weight:600;">academy@schoolofhopeinternational.org</a>.</p>
+      <p style="font-size:14px; color:var(--ink-muted);" data-lang="es">Puedes completar este formulario en español o en inglés — las etiquetas se ajustan según tu selección de idioma. Nuestro equipo procesa las solicitudes en español; escríbenos a <a href="mailto:academy@schoolofhopeinternational.org" style="color:var(--navy); font-weight:600;">academy@schoolofhopeinternational.org</a> si tienes dudas.</p>
+      <p style="font-size:14px; color:var(--ink-muted);" data-lang="en" hidden>You can fill out this form with Spanish or English labels — they follow your language selection. Our team processes applications in Spanish; reach out to <a href="mailto:academy@schoolofhopeinternational.org" style="color:var(--navy); font-weight:600;">academy@schoolofhopeinternational.org</a> if you have questions.</p>
     </div>
 
     <div id="scholarship-success" class="form-card form-success" hidden>
       <div class="icon-circle"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></div>
-      <h3 style="font-size:22px; margin-bottom:10px;">¡Solicitud enviada!</h3>
-      <p style="color:var(--ink-muted);">Gracias por tu solicitud. Nuestro equipo la revisará y se pondrá en contacto contigo pronto por correo o WhatsApp.</p>
+      <h3 style="font-size:22px; margin-bottom:10px;" data-lang="es">¡Solicitud enviada!</h3>
+      <h3 style="font-size:22px; margin-bottom:10px;" data-lang="en" hidden>Application sent!</h3>
+      <p style="color:var(--ink-muted);" data-lang="es">Gracias por tu solicitud. Nuestro equipo la revisará y se pondrá en contacto contigo pronto por correo o WhatsApp.</p>
+      <p style="color:var(--ink-muted);" data-lang="en" hidden>Thank you for your application. Our team will review it and get back to you soon by email or WhatsApp.</p>
     </div>
 
     <div id="scholarship-error" class="form-card" style="border-color:#be5a34; margin-bottom:20px;" hidden>
-      <p style="color:#be5a34; margin:0; font-size:14px;">No pudimos enviar tu solicitud. Por favor intenta de nuevo, o escríbenos directamente a <a href="mailto:academy@schoolofhopeinternational.org" style="color:#be5a34; font-weight:600;">academy@schoolofhopeinternational.org</a>.</p>
+      <p style="color:#be5a34; margin:0; font-size:14px;" data-lang="es">No pudimos enviar tu solicitud. Por favor intenta de nuevo, o escríbenos directamente a <a href="mailto:academy@schoolofhopeinternational.org" style="color:#be5a34; font-weight:600;">academy@schoolofhopeinternational.org</a>.</p>
+      <p style="color:#be5a34; margin:0; font-size:14px;" data-lang="en" hidden>We couldn't send your application. Please try again, or email us directly at <a href="mailto:academy@schoolofhopeinternational.org" style="color:#be5a34; font-weight:600;">academy@schoolofhopeinternational.org</a>.</p>
     </div>
 
     <form id="scholarship-form" class="form-card">
       <fieldset class="form-section">
-        <legend><span class="step-num">1</span> Información del estudiante</legend>
+        <legend><span class="step-num">1</span> <span data-lang="es">Información del estudiante</span><span data-lang="en" hidden>Student information</span></legend>
         <div class="form-row-2">
-          <div class="form-row"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" required></div>
-          <div class="form-row"><label for="apellido">Apellido</label><input type="text" id="apellido" name="apellido" required></div>
+          <div class="form-row"><label for="nombre"><span data-lang="es">Nombre</span><span data-lang="en" hidden>First name</span></label><input type="text" id="nombre" name="nombre" required></div>
+          <div class="form-row"><label for="apellido"><span data-lang="es">Apellido</span><span data-lang="en" hidden>Last name</span></label><input type="text" id="apellido" name="apellido" required></div>
         </div>
         <div class="form-row-2">
-          <div class="form-row"><label for="fechaNacimiento">Fecha de nacimiento</label><input type="date" id="fechaNacimiento" name="fechaNacimiento" required></div>
-          <div class="form-row"><label for="edad">Edad</label><input type="number" id="edad" name="edad" min="10" max="99" required></div>
+          <div class="form-row"><label for="fechaNacimiento"><span data-lang="es">Fecha de nacimiento</span><span data-lang="en" hidden>Date of birth</span></label><input type="date" id="fechaNacimiento" name="fechaNacimiento" required></div>
+          <div class="form-row"><label for="edad"><span data-lang="es">Edad</span><span data-lang="en" hidden>Age</span></label><input type="number" id="edad" name="edad" min="10" max="99" required></div>
         </div>
         <div class="form-row-2">
-          <div class="form-row"><label for="ciudad">Ciudad de residencia</label><input type="text" id="ciudad" name="ciudad" required></div>
+          <div class="form-row"><label for="ciudad"><span data-lang="es">Ciudad de residencia</span><span data-lang="en" hidden>City of residence</span></label><input type="text" id="ciudad" name="ciudad" required></div>
           <div class="form-row">
-            <label for="pais">País</label>
+            <label for="pais"><span data-lang="es">País</span><span data-lang="en" hidden>Country</span></label>
             <select id="pais" name="pais" required>
-              <option value="">Selecciona un país</option>
+              <option value="">País / Select a country</option>
               <option>Afghanistan</option><option>Aland Islands</option><option>Albania</option><option>Algeria</option><option>American Samoa</option><option>Andorra</option><option>Angola</option><option>Anguilla</option><option>Antarctica</option><option>Antigua and Barbuda</option><option>Argentina</option><option>Armenia</option><option>Aruba</option><option>Australia</option><option>Austria</option><option>Azerbaijan</option><option>Bahamas</option><option>Bahrain</option><option>Bangladesh</option><option>Barbados</option><option>Belarus</option><option>Belgium</option><option>Belize</option><option>Benin</option><option>Bermuda</option><option>Bhutan</option><option>Bolivia</option><option>Bonaire, Saint Eustatius and Saba</option><option>Bosnia and Herzegovina</option><option>Botswana</option><option>Bouvet Island</option><option>Brazil</option><option>British Indian Ocean Territory</option><option>British Virgin Islands</option><option>Brunei</option><option>Bulgaria</option><option>Burkina Faso</option><option>Burundi</option><option>Cabo Verde</option><option>Cambodia</option><option>Cameroon</option><option>Canada</option><option>Cayman Islands</option><option>Central African Republic</option><option>Chad</option><option>Chile</option><option>China</option><option>Christmas Island</option><option>Cocos (Keeling) Islands</option><option>Colombia</option><option>Comoros</option><option>Cook Islands</option><option>Costa Rica</option><option>Croatia</option><option>Cuba</option><option>Curaçao</option><option>Cyprus</option><option>Czech Republic</option><option>Democratic Republic of the Congo (Kinshasa)</option><option>Denmark</option><option>Djibouti</option><option>Dominica</option><option>Dominican Republic</option><option>Ecuador</option><option>Egypt</option><option>El Salvador</option><option>Equatorial Guinea</option><option>Eritrea</option><option>Estonia</option><option>Eswatini</option><option>Ethiopia</option><option>Falkland Islands</option><option>Faroe Islands</option><option>Fiji</option><option>Finland</option><option>France</option><option>French Guiana</option><option>French Polynesia</option><option>French Southern Territories</option><option>Gabon</option><option>Gambia</option><option>Georgia</option><option>Germany</option><option>Ghana</option><option>Gibraltar</option><option>Greece</option><option>Greenland</option><option>Grenada</option><option>Guadeloupe</option><option>Guam</option><option>Guatemala</option><option>Guernsey</option><option>Guinea</option><option>Guinea-Bissau</option><option>Guyana</option><option>Haiti</option><option>Heard Island and McDonald Islands</option><option>Honduras</option><option>Hong Kong</option><option>Hungary</option><option>Iceland</option><option>India</option><option>Indonesia</option><option>Iran</option><option>Iraq</option><option>Ireland</option><option>Isle of Man</option><option>Israel</option><option>Italy</option><option>Ivory Coast</option><option>Jamaica</option><option>Japan</option><option>Jersey</option><option>Jordan</option><option>Kazakhstan</option><option>Kenya</option><option>Kiribati</option><option>Kosovo</option><option>Kuwait</option><option>Kyrgyzstan</option><option>Laos</option><option>Latvia</option><option>Lebanon</option><option>Lesotho</option><option>Liberia</option><option>Libya</option><option>Liechtenstein</option><option>Lithuania</option><option>Luxembourg</option><option>Macao S.A.R., China</option><option>Madagascar</option><option>Malawi</option><option>Malaysia</option><option>Maldives</option><option>Mali</option><option>Malta</option><option>Marshall Islands</option><option>Martinique</option><option>Mauritania</option><option>Mauritius</option><option>Mayotte</option><option>Mexico</option><option>Micronesia</option><option>Moldova</option><option>Monaco</option><option>Mongolia</option><option>Montenegro</option><option>Montserrat</option><option>Morocco</option><option>Mozambique</option><option>Myanmar</option><option>Namibia</option><option>Nauru</option><option>Nepal</option><option>Netherlands</option><option>New Caledonia</option><option>New Zealand</option><option>Nicaragua</option><option>Niger</option><option>Nigeria</option><option>Niue</option><option>Norfolk Island</option><option>North Korea</option><option>North Macedonia</option><option>Northern Mariana Islands</option><option>Norway</option><option>Oman</option><option>Pakistan</option><option>Palau</option><option>Palestinian Territory</option><option>Panama</option><option>Papua New Guinea</option><option>Paraguay</option><option>Peru</option><option>Philippines</option><option>Pitcairn</option><option>Poland</option><option>Portugal</option><option>Puerto Rico</option><option>Qatar</option><option>Republic of the Congo (Brazzaville)</option><option>Romania</option><option>Russia</option><option>Rwanda</option><option>Réunion</option><option>Saint Barthélemy</option><option>Saint Helena</option><option>Saint Kitts and Nevis</option><option>Saint Lucia</option><option>Saint Martin (Dutch part)</option><option>Saint Martin (French part)</option><option>Saint Pierre and Miquelon</option><option>Saint Vincent and the Grenadines</option><option>Samoa</option><option>San Marino</option><option>Sao Tome and Principe</option><option>Saudi Arabia</option><option>Senegal</option><option>Serbia</option><option>Seychelles</option><option>Sierra Leone</option><option>Singapore</option><option>Slovakia</option><option>Slovenia</option><option>Solomon Islands</option><option>Somalia</option><option>South Africa</option><option>South Georgia/Sandwich Islands</option><option>South Korea</option><option>South Sudan</option><option>Spain</option><option>Sri Lanka</option><option>Sudan</option><option>Suriname</option><option>Svalbard and Jan Mayen</option><option>Sweden</option><option>Switzerland</option><option>Syria</option><option>Taiwan</option><option>Tajikistan</option><option>Tanzania</option><option>Thailand</option><option>Timor-Leste</option><option>Togo</option><option>Tokelau</option><option>Tonga</option><option>Trinidad and Tobago</option><option>Tunisia</option><option>Turkmenistan</option><option>Turks and Caicos Islands</option><option>Tuvalu</option><option>Türkiye</option><option>Uganda</option><option>Ukraine</option><option>United Arab Emirates</option><option>United Kingdom (UK)</option><option>United States (US)</option><option>United States (US) Minor Outlying Islands</option><option>United States (US) Virgin Islands</option><option>Uruguay</option><option>Uzbekistan</option><option>Vanuatu</option><option>Vatican</option><option>Venezuela</option><option>Vietnam</option><option>Wallis and Futuna</option><option>Western Sahara</option><option>Yemen</option><option>Zambia</option><option>Zimbabwe</option>
             </select>
           </div>
         </div>
         <div class="form-row-2">
-          <div class="form-row"><label for="telefono">Teléfono (WhatsApp si aplica)</label><input type="tel" id="telefono" name="telefono" required></div>
+          <div class="form-row"><label for="telefono"><span data-lang="es">Teléfono (WhatsApp si aplica)</span><span data-lang="en" hidden>Phone (WhatsApp if applicable)</span></label><input type="tel" id="telefono" name="telefono" required></div>
           <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
         </div>
       </fieldset>
 
       <fieldset class="form-section">
-        <legend><span class="step-num">2</span> Información académica</legend>
+        <legend><span class="step-num">2</span> <span data-lang="es">Información académica</span><span data-lang="en" hidden>Academic information</span></legend>
         <div class="form-row">
-          <label>Nivel educativo actual</label>
+          <label><span data-lang="es">Nivel educativo actual</span><span data-lang="en" hidden>Current education level</span></label>
           <div class="choice-group">
-            <label><input type="radio" name="nivelEducativo" value="Actualmente cursando secundaria" required> Actualmente cursando secundaria</label>
-            <label><input type="radio" name="nivelEducativo" value="Secundaria interrumpida"> Secundaria interrumpida</label>
-            <label><input type="radio" name="nivelEducativo" value="Estudiante que regresa después de una pausa"> Estudiante que regresa después de una pausa</label>
-            <label><input type="radio" name="nivelEducativo" value="Ingresando a secundaria"> Ingresando a secundaria</label>
+            <label><input type="radio" name="nivelEducativo" value="Actualmente cursando secundaria" required> <span data-lang="es">Actualmente cursando secundaria</span><span data-lang="en" hidden>Currently in high school</span></label>
+            <label><input type="radio" name="nivelEducativo" value="Secundaria interrumpida"> <span data-lang="es">Secundaria interrumpida</span><span data-lang="en" hidden>High school interrupted</span></label>
+            <label><input type="radio" name="nivelEducativo" value="Estudiante que regresa después de una pausa"> <span data-lang="es">Estudiante que regresa después de una pausa</span><span data-lang="en" hidden>Returning student after a break</span></label>
+            <label><input type="radio" name="nivelEducativo" value="Ingresando a secundaria"> <span data-lang="es">Ingresando a secundaria</span><span data-lang="en" hidden>Entering high school</span></label>
           </div>
         </div>
-        <div class="form-row"><label for="ultimoGrado">Último grado aprobado</label><input type="text" id="ultimoGrado" name="ultimoGrado" required></div>
+        <div class="form-row"><label for="ultimoGrado"><span data-lang="es">Último grado aprobado</span><span data-lang="en" hidden>Last grade completed</span></label><input type="text" id="ultimoGrado" name="ultimoGrado" required></div>
         <div class="form-row">
-          <label>¿Ha repetido algún grado debido a dificultades económicas?</label>
+          <label><span data-lang="es">¿Ha repetido algún grado debido a dificultades económicas?</span><span data-lang="en" hidden>Have you repeated a grade due to financial hardship?</span></label>
           <div class="choice-group">
-            <label><input type="radio" name="repitioGrado" value="Sí" required> Sí</label>
+            <label><input type="radio" name="repitioGrado" value="Sí" required> <span data-lang="es">Sí</span><span data-lang="en" hidden>Yes</span></label>
             <label><input type="radio" name="repitioGrado" value="No"> No</label>
           </div>
         </div>
-        <div class="form-row"><label for="porQueNoPuede">¿Por qué no puede culminar su bachillerato sin apoyo financiero?</label><textarea id="porQueNoPuede" name="porQueNoPuede" required></textarea></div>
+        <div class="form-row"><label for="porQueNoPuede"><span data-lang="es">¿Por qué no puede culminar su bachillerato sin apoyo financiero?</span><span data-lang="en" hidden>Why can't you finish high school without financial support?</span></label><textarea id="porQueNoPuede" name="porQueNoPuede" required></textarea></div>
       </fieldset>
 
       <fieldset class="form-section">
-        <legend><span class="step-num">3</span> Acceso digital y conectividad</legend>
+        <legend><span class="step-num">3</span> <span data-lang="es">Acceso digital y conectividad</span><span data-lang="en" hidden>Digital access and connectivity</span></legend>
         <div class="form-row-2">
-          <div class="form-row"><label for="conQuienVive">¿Con quién vive actualmente?</label><input type="text" id="conQuienVive" name="conQuienVive" required></div>
-          <div class="form-row"><label for="personasHogar">Número total de personas en su hogar</label><input type="number" id="personasHogar" name="personasHogar" min="1" required></div>
+          <div class="form-row"><label for="conQuienVive"><span data-lang="es">¿Con quién vive actualmente?</span><span data-lang="en" hidden>Who do you currently live with?</span></label><input type="text" id="conQuienVive" name="conQuienVive" required></div>
+          <div class="form-row"><label for="personasHogar"><span data-lang="es">Número total de personas en su hogar</span><span data-lang="en" hidden>Total number of people in your household</span></label><input type="number" id="personasHogar" name="personasHogar" min="1" required></div>
         </div>
         <div class="form-row-2">
-          <div class="form-row"><label for="fuenteIngresos">Principal fuente de ingresos del hogar</label><input type="text" id="fuenteIngresos" name="fuenteIngresos" required></div>
-          <div class="form-row"><label for="ingresoMensual">Ingreso mensual aproximado del hogar</label><input type="text" id="ingresoMensual" name="ingresoMensual" required></div>
+          <div class="form-row"><label for="fuenteIngresos"><span data-lang="es">Principal fuente de ingresos del hogar</span><span data-lang="en" hidden>Main source of household income</span></label><input type="text" id="fuenteIngresos" name="fuenteIngresos" required></div>
+          <div class="form-row"><label for="ingresoMensual"><span data-lang="es">Ingreso mensual aproximado del hogar</span><span data-lang="en" hidden>Approximate monthly household income</span></label><input type="text" id="ingresoMensual" name="ingresoMensual" required></div>
         </div>
         <div class="form-row">
-          <label>¿Este ingreso cubre las necesidades básicas (alimentación, vivienda, servicios)?</label>
+          <label><span data-lang="es">¿Este ingreso cubre las necesidades básicas (alimentación, vivienda, servicios)?</span><span data-lang="en" hidden>Does this income cover basic needs (food, housing, utilities)?</span></label>
           <div class="choice-group">
-            <label><input type="radio" name="cubreNecesidades" value="Sí" required> Sí</label>
+            <label><input type="radio" name="cubreNecesidades" value="Sí" required> <span data-lang="es">Sí</span><span data-lang="en" hidden>Yes</span></label>
             <label><input type="radio" name="cubreNecesidades" value="No"> No</label>
           </div>
         </div>
       </fieldset>
 
       <fieldset class="form-section">
-        <legend><span class="step-num">4</span> Información socioeconómica</legend>
+        <legend><span class="step-num">4</span> <span data-lang="es">Información socioeconómica</span><span data-lang="en" hidden>Socioeconomic information</span></legend>
         <div class="form-row">
-          <label>¿Tiene acceso actualmente a algún dispositivo digital? (puede seleccionar más de uno)</label>
+          <label><span data-lang="es">¿Tiene acceso actualmente a algún dispositivo digital? (puede seleccionar más de uno)</span><span data-lang="en" hidden>Do you currently have access to a digital device? (select all that apply)</span></label>
           <div class="choice-group">
-            <label><input type="checkbox" name="dispositivos" value="Teléfono inteligente (smartphone)"> Teléfono inteligente (smartphone)</label>
-            <label><input type="checkbox" name="dispositivos" value="Tableta"> Tableta</label>
-            <label><input type="checkbox" name="dispositivos" value="Computadora"> Computadora</label>
-            <label><input type="checkbox" name="dispositivos" value="Ninguno"> Ninguno</label>
+            <label><input type="checkbox" name="dispositivos" value="Teléfono inteligente (smartphone)"> <span data-lang="es">Teléfono inteligente (smartphone)</span><span data-lang="en" hidden>Smartphone</span></label>
+            <label><input type="checkbox" name="dispositivos" value="Tableta"> <span data-lang="es">Tableta</span><span data-lang="en" hidden>Tablet</span></label>
+            <label><input type="checkbox" name="dispositivos" value="Computadora"> <span data-lang="es">Computadora</span><span data-lang="en" hidden>Computer</span></label>
+            <label><input type="checkbox" name="dispositivos" value="Ninguno"> <span data-lang="es">Ninguno</span><span data-lang="en" hidden>None</span></label>
           </div>
         </div>
         <div class="form-row">
-          <label>¿Cuenta con acceso estable a internet para clases en línea?</label>
+          <label><span data-lang="es">¿Cuenta con acceso estable a internet para clases en línea?</span><span data-lang="en" hidden>Do you have stable internet access for online classes?</span></label>
           <div class="choice-group">
-            <label><input type="radio" name="accesoInternet" value="Sí" required> Sí</label>
+            <label><input type="radio" name="accesoInternet" value="Sí" required> <span data-lang="es">Sí</span><span data-lang="en" hidden>Yes</span></label>
             <label><input type="radio" name="accesoInternet" value="No"> No</label>
-            <label><input type="radio" name="accesoInternet" value="Limitado"> Limitado</label>
+            <label><input type="radio" name="accesoInternet" value="Limitado"> <span data-lang="es">Limitado</span><span data-lang="en" hidden>Limited</span></label>
           </div>
         </div>
         <div class="form-row">
-          <label>¿Tiene un espacio tranquilo y adecuado para estudiar?</label>
+          <label><span data-lang="es">¿Tiene un espacio tranquilo y adecuado para estudiar?</span><span data-lang="en" hidden>Do you have a quiet, adequate space to study?</span></label>
           <div class="choice-group">
-            <label><input type="radio" name="espacioEstudio" value="Sí" required> Sí</label>
+            <label><input type="radio" name="espacioEstudio" value="Sí" required> <span data-lang="es">Sí</span><span data-lang="en" hidden>Yes</span></label>
             <label><input type="radio" name="espacioEstudio" value="No"> No</label>
           </div>
         </div>
       </fieldset>
 
       <div class="info-callout">
-        <h3 style="color:var(--navy);">Recursos educativos digitales</h3>
-        <p style="font-size:14px; margin:0;">School of Hope, un programa de Hope for the Nations, ofrece educación secundaria completamente en línea. La beca brinda acceso a los recursos digitales necesarios para culminar exitosamente el bachillerato.</p>
+        <h3 style="color:var(--navy);" data-lang="es">Recursos educativos digitales</h3>
+        <h3 style="color:var(--navy);" data-lang="en" hidden>Digital educational resources</h3>
+        <p style="font-size:14px; margin:0;" data-lang="es">School of Hope, un programa de Hope for the Nations, ofrece educación secundaria completamente en línea. La beca brinda acceso a los recursos digitales necesarios para culminar exitosamente el bachillerato.</p>
+        <p style="font-size:14px; margin:0;" data-lang="en" hidden>School of Hope, a program of Hope for the Nations, offers fully online secondary education. The scholarship provides access to the digital resources needed to successfully complete high school.</p>
         <ul class="list-check">
-          <li>Acceso a la plataforma educativa virtual</li>
-          <li>Libros digitales y materiales instruccionales</li>
-          <li>Software educativo y contenido interactivo</li>
-          <li>Uso de un dispositivo digital (teléfono, tableta o computadora)</li>
-          <li>Conectividad a internet para clases virtuales y tareas académicas</li>
+          <li data-lang="es">Acceso a la plataforma educativa virtual</li>
+          <li data-lang="en" hidden>Access to the virtual learning platform</li>
+          <li data-lang="es">Libros digitales y materiales instruccionales</li>
+          <li data-lang="en" hidden>Digital books and instructional materials</li>
+          <li data-lang="es">Software educativo y contenido interactivo</li>
+          <li data-lang="en" hidden>Educational software and interactive content</li>
+          <li data-lang="es">Uso de un dispositivo digital (teléfono, tableta o computadora)</li>
+          <li data-lang="en" hidden>Use of a digital device (phone, tablet, or computer)</li>
+          <li data-lang="es">Conectividad a internet para clases virtuales y tareas académicas</li>
+          <li data-lang="en" hidden>Internet connectivity for virtual classes and academic work</li>
         </ul>
       </div>
 
       <fieldset class="form-section">
-        <legend><span class="step-num">5</span> Motivación y compromiso</legend>
-        <div class="form-row"><label for="porQueDesea">¿Por qué desea culminar su bachillerato?</label><textarea id="porQueDesea" name="porQueDesea" required></textarea></div>
-        <div class="form-row"><label for="metasFuturo">¿Cuáles son sus metas a futuro?</label><textarea id="metasFuturo" name="metasFuturo" required></textarea></div>
+        <legend><span class="step-num">5</span> <span data-lang="es">Motivación y compromiso</span><span data-lang="en" hidden>Motivation and commitment</span></legend>
+        <div class="form-row"><label for="porQueDesea"><span data-lang="es">¿Por qué desea culminar su bachillerato?</span><span data-lang="en" hidden>Why do you want to finish high school?</span></label><textarea id="porQueDesea" name="porQueDesea" required></textarea></div>
+        <div class="form-row"><label for="metasFuturo"><span data-lang="es">¿Cuáles son sus metas a futuro?</span><span data-lang="en" hidden>What are your future goals?</span></label><textarea id="metasFuturo" name="metasFuturo" required></textarea></div>
         <div class="form-row">
-          <label>¿Está dispuesto/a a comprometerse con la asistencia, el progreso académico y las normas del programa?</label>
+          <label><span data-lang="es">¿Está dispuesto/a a comprometerse con la asistencia, el progreso académico y las normas del programa?</span><span data-lang="en" hidden>Are you willing to commit to attendance, academic progress, and the program's rules?</span></label>
           <div class="choice-group">
-            <label><input type="radio" name="dispuestoComprometerse" value="Sí" required> Sí</label>
+            <label><input type="radio" name="dispuestoComprometerse" value="Sí" required> <span data-lang="es">Sí</span><span data-lang="en" hidden>Yes</span></label>
             <label><input type="radio" name="dispuestoComprometerse" value="No"> No</label>
           </div>
         </div>
       </fieldset>
 
       <fieldset class="form-section">
-        <legend><span class="step-num">6</span> Declaración del estudiante</legend>
+        <legend><span class="step-num">6</span> <span data-lang="es">Declaración del estudiante</span><span data-lang="en" hidden>Student declaration</span></legend>
         <div class="form-row">
           <label style="display:flex; align-items:flex-start; gap:10px; font-weight:500;">
             <input type="checkbox" name="declaracionAceptada" required style="margin-top:3px;">
-            Certifico que la información proporcionada es verdadera y entiendo que esta beca está destinada exclusivamente a fines educativos.
+            <span data-lang="es">Certifico que la información proporcionada es verdadera y entiendo que esta beca está destinada exclusivamente a fines educativos.</span>
+            <span data-lang="en" hidden>I certify that the information provided is true and I understand this scholarship is intended exclusively for educational purposes.</span>
           </label>
         </div>
         <div class="form-row-2">
-          <div class="form-row"><label for="nombreDeclaracion">Nombre</label><input type="text" id="nombreDeclaracion" name="nombreDeclaracion" required></div>
-          <div class="form-row"><label for="apellidoDeclaracion">Apellido</label><input type="text" id="apellidoDeclaracion" name="apellidoDeclaracion" required></div>
+          <div class="form-row"><label for="nombreDeclaracion"><span data-lang="es">Nombre</span><span data-lang="en" hidden>First name</span></label><input type="text" id="nombreDeclaracion" name="nombreDeclaracion" required></div>
+          <div class="form-row"><label for="apellidoDeclaracion"><span data-lang="es">Apellido</span><span data-lang="en" hidden>Last name</span></label><input type="text" id="apellidoDeclaracion" name="apellidoDeclaracion" required></div>
         </div>
-        <div class="form-row"><label for="fechaDeclaracion">Fecha</label><input type="date" id="fechaDeclaracion" name="fechaDeclaracion" required></div>
+        <div class="form-row"><label for="fechaDeclaracion"><span data-lang="es">Fecha</span><span data-lang="en" hidden>Date</span></label><input type="date" id="fechaDeclaracion" name="fechaDeclaracion" required></div>
       </fieldset>
 
-      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;" id="scholarship-submit">Enviar solicitud</button>
-      <p class="form-note">Tus datos se usan únicamente para evaluar tu solicitud de beca.</p>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;" id="scholarship-submit">
+        <span data-lang="es">Enviar solicitud</span><span data-lang="en" hidden>Submit application</span>
+      </button>
+      <p class="form-note"><span data-lang="es">Tus datos se usan únicamente para evaluar tu solicitud de beca.</span><span data-lang="en" hidden>Your information is used only to evaluate your scholarship application.</span></p>
     </form>
   </div>
 </section>
