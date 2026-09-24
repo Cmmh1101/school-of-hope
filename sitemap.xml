@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Static pages update automatically in spirit (they don't move), but this file itself is
+  plain hand-maintained XML — there's no build step to regenerate it. The three blog post
+  entries below reflect what's published today; add a new <url> block here whenever a new
+  post goes live via /admin/, and delete the entry if a post is ever unpublished.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://schoolofhopeinternational.org/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://schoolofhopeinternational.org/programas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://schoolofhopeinternational.org/becas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://schoolofhopeinternational.org/admisiones.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://schoolofhopeinternational.org/sobre-nosotros.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://schoolofhopeinternational.org/contacto.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://schoolofhopeinternational.org/blog.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://schoolofhopeinternational.org/post.html?slug=bienvenidos-a-school-of-hope-international</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://schoolofhopeinternational.org/post.html?slug=escuela-online-bilingue</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://schoolofhopeinternational.org/post.html?slug=educacion-con-proposito</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
