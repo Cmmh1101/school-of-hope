@@ -278,8 +278,8 @@ h1, h2, h3, h4 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 56px;
+  grid-template-columns: 0.9fr 1.15fr;
+  gap: 44px;
   align-items: center;
 }
 
