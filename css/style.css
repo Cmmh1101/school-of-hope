@@ -892,3 +892,58 @@ table.pricing-table th {
 .ql-editor { min-height: 220px; font-family: var(--font-body); font-size: 14.5px; }
 .ql-toolbar.ql-snow { border-radius: 6px 6px 0 0; border-color: var(--line); }
 .ql-container.ql-snow { border-radius: 0 0 6px 6px; border-color: var(--line); font-family: var(--font-body); }
+
+.promo-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 40, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.promo-popup-overlay.is-open { opacity: 1; }
+.promo-popup {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  max-width: 380px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: translateY(12px) scale(0.97);
+  transition: transform 0.2s ease;
+}
+.promo-popup-overlay.is-open .promo-popup { transform: translateY(0) scale(1); }
+.promo-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--navy);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.promo-popup-image { display: block; width: 100%; height: auto; border-radius: 16px 16px 0 0; }
+.promo-popup-actions {
+  display: flex;
+  gap: 10px;
+  padding: 18px;
+}
+.promo-popup-actions .btn { flex: 1; text-align: center; justify-content: center; }
+@media (max-width: 480px) {
+  .promo-popup-actions { flex-direction: column; }
+}
