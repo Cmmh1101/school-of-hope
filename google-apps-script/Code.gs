@@ -28,7 +28,7 @@
  * the error instead of a link, so no submission is ever lost even if Drive misbehaves.
  */
 
-var FOLDER_ID = "PASTE_YOUR_DRIVE_FOLDER_ID_HERE";
+var FOLDER_ID = "1ZmMH-YvD-JAYSrek7kXzLuaI_3ESmTv6";
 var NOTIFY_EMAIL = "academy@schoolofhopeinternational.org";
 
 var HEADERS = [

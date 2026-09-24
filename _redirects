@@ -1,0 +1,13 @@
+# Old WordPress URLs → new static pages. 301s (not 302s) so Google transfers the old
+# pages' SEO value to the new ones, and so old bookmarks / links already shared on
+# WhatsApp or social don't just dead-end.
+
+/about/           /sobre-nosotros.html   301
+/contact/         /contacto.html         301
+/scholarships/    /becas.html            301
+/blog/            /blog.html             301
+
+# Individual blog posts — same slugs as the old WordPress site, now served through post.html
+/bienvenidos-a-school-of-hope-international/   /post.html?slug=bienvenidos-a-school-of-hope-international   301
+/escuela-online-bilingue/                       /post.html?slug=escuela-online-bilingue                       301
+/educacion-con-proposito/                       /post.html?slug=educacion-con-proposito                       301

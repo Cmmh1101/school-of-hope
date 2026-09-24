@@ -1,7 +1,7 @@
 // Scholarship application form: submits to a Google Apps Script Web App, which appends
 // a row to a Google Sheet you own. See google-apps-script/Code.gs in this repo for the
 // script to deploy, and paste your deployed Web App URL below.
-var SCHOLARSHIP_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+var SCHOLARSHIP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGWoHtgGC9IdaiVzyd76lRpZOJw9Ts5wrePdDybcjgUAxvKcAQtCd8YWaa0eGQtS4r3w/exec";
 
 document.addEventListener("DOMContentLoaded", function () {
   var form = document.querySelector("#scholarship-form");
