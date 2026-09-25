@@ -75,6 +75,7 @@ h1, h2, h3, h4 {
   font-size: 14.5px;
   padding: 13px 26px;
   border-radius: 6px;
+  cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -947,3 +948,26 @@ table.pricing-table th {
 @media (max-width: 480px) {
   .promo-popup-actions { flex-direction: column; }
 }
+
+.password-field { position: relative; display: flex; }
+.password-field input { flex: 1; padding-right: 42px; }
+.password-toggle {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  color: var(--ink-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+.password-toggle:hover { background: var(--paper-card); color: var(--navy); }
+.password-toggle .icon-eye-off { display: none; }
+.password-toggle.is-visible .icon-eye-open { display: none; }
+.password-toggle.is-visible .icon-eye-off { display: block; }

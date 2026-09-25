@@ -18,6 +18,17 @@ document.addEventListener("DOMContentLoaded", function () {
   var saveStatus = document.querySelector("#save-status");
   var titleEsInput = document.querySelector("#post-title-es");
   var titleEnInput = document.querySelector("#post-title-en");
+  var categorySelect = document.querySelector("#post-category");
+  var passwordInput = document.querySelector("#login-password");
+  var togglePasswordBtn = document.querySelector("#toggle-password-btn");
+
+  var CATEGORY_LABELS = {
+    noticias: "Noticias",
+    educacion: "Educación",
+    comunidad: "Comunidad",
+    testimonios: "Testimonios",
+    eventos: "Eventos",
+  };
 
   var editingId = null;
   var slugTouched = false;
@@ -94,6 +105,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // ---------- Password show/hide ----------
+  togglePasswordBtn.addEventListener("click", function () {
+    var show = passwordInput.type === "password";
+    passwordInput.type = show ? "text" : "password";
+    togglePasswordBtn.setAttribute("aria-label", show ? "Ocultar contraseña" : "Mostrar contraseña");
+    togglePasswordBtn.classList.toggle("is-visible", show);
+  });
+
   // ---------- Auth ----------
   function showDashboard() {
     loginView.hidden = true;
@@ -148,6 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
     quillEs.setContents([]);
     quillEn.setContents([]);
     document.querySelector("#post-form-title").textContent = "Nueva publicación";
+    categorySelect.value = "";
     coverPreview.hidden = true;
     saveStatus.hidden = true;
     document.querySelector('.admin-lang-tabs button[data-post-lang="es"]').click();
@@ -180,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (post.body_en) quillEn.clipboard.dangerouslyPasteHTML(post.body_en);
 
     slugInput.value = post.slug;
+    categorySelect.value = post.category || "";
     postForm.querySelector('input[name="status"][value="' + post.status + '"]').checked = true;
 
     if (post.cover_image_url) {
@@ -234,12 +255,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (post.title_es && post.body_es) langsPresent.push("ES");
       if (post.title_en && post.body_en) langsPresent.push("EN");
       var displayTitle = post.title_es || post.title_en || "(sin título)";
+      var categoryLabel = CATEGORY_LABELS[post.category] || "sin categoría";
 
       var row = document.createElement("div");
       row.className = "admin-post-row";
       row.innerHTML =
         "<div><strong>" + escapeHtml(displayTitle) + "</strong>" +
-        '<span class="admin-post-meta">' + statusLabel + " · " + (langsPresent.join("/") || "sin idioma") + " · /" + escapeHtml(post.slug) + "</span></div>";
+        '<span class="admin-post-meta">' + statusLabel + " · " + (langsPresent.join("/") || "sin idioma") + " · " + escapeHtml(categoryLabel) + " · /" + escapeHtml(post.slug) + "</span></div>";
 
       var actions = document.createElement("div");
       actions.className = "admin-post-actions";
@@ -298,6 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
         title_en: hasEn ? titleEnInput.value.trim() : null,
         excerpt_en: hasEn ? document.querySelector("#post-excerpt-en").value : null,
         body_en: hasEn ? bodyEn : null,
+        category: categorySelect.value || null,
         status: postForm.querySelector('input[name="status"]:checked').value,
       };
       if (coverUrl) payload.cover_image_url = coverUrl;

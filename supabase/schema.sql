@@ -27,6 +27,7 @@ create table if not exists posts (
   body_es text,
   body_en text,
   cover_image_url text,
+  category text,
   status text not null default 'draft' check (status in ('draft', 'published')),
   published_at timestamptz,
   created_at timestamptz not null default now(),
@@ -40,10 +41,14 @@ alter table posts add column if not exists excerpt_es text;
 alter table posts add column if not exists excerpt_en text;
 alter table posts add column if not exists body_es text;
 alter table posts add column if not exists body_en text;
+alter table posts add column if not exists category text;
 alter table posts drop column if exists title;
 alter table posts drop column if exists excerpt;
 alter table posts drop column if exists body;
 alter table posts drop column if exists lang;
+
+-- Speeds up future filtering/sorting by category on the public blog.
+create index if not exists idx_posts_category on posts (category);
 
 alter table posts enable row level security;
 
